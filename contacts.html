@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONIG GLOBAL - Contact</title>
+
+    <style>
+        /* BASE STYLES */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #f0f0f0;
+        }
+
+        :root {
+            --konig-red: #b20700;
+            --konig-dark: #000;
+        }
+
+        .container { width: 90%; max-width: 1280px; margin: auto; }
+
+        /* HEADER */
+        header {
+            background: #000;
+            padding: 15px 0;
+            border-bottom: 4px solid var(--konig-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo img {
+            height: 45px;
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding-bottom: 4px;
+        }
+
+        nav a.active,
+        nav a:hover {
+            border-bottom: 2px solid var(--konig-red);
+            color: var(--konig-red);
+        }
+
+        /* BANNER */
+        .page-banner {
+            background: url('./img/Espresso\ Photos\ -\ Download\ Free\ High-Quality\ Pictures\ _\ Freepik.jpeg') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 5px solid var(--konig-red);
+        }
+
+        .page-banner h1 {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 40px;
+            font-size: 42px;
+            border-radius: 6px;
+        }
+
+        /* CONTACT SECTION */
+        section {
+            padding: 70px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 34px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--konig-red);
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-box, .form-box {
+            background: #222;
+            padding: 30px;
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .contact-box h3,
+        .form-box h3 {
+            color: var(--konig-red);
+            margin-top: 0;
+        }
+
+        .form-box input, .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background: #333;
+            color: #eee;
+            font-size: 16px;
+        }
+
+        .form-box button {
+            background: var(--konig-red);
+            border: none;
+            padding: 14px 25px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-box button:hover { background: #8f0600; }
+
+        /* MAP */
+        .map-container {
+            margin-top: 50px;
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--konig-red);
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+            z-index: 9999;
+        }
+        .whatsapp-float:hover { background: #1eb358; }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            padding: 40px 0;
+            background: #000;
+            text-align: center;
+            color: #777;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/лого.jpg" alt="Logo">
+                König Global
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="contacts.html" class="active">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="page-banner">
+    <h1>Perfection don't have to be expensive.
+    <br> We have proved better taste, better fragrance and low costs.</h1>
+   
+</div>
+
+<section class="container">
+
+    <h2>CONTACT INFORMATION</h2>
+
+    <div class="contact-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="contact-box">
+            <h3>ARES ENDÜSTRİYEL YİYECEK İÇECEK SAN. ve TİC. LTD. ŞTİ.</h3>
+
+            <p><strong>Email:</strong> <a href="mailto:paperfilter@konig.com.tr" style="color:#fff;">paperfilter@konig.com.tr</a></p>
+            <p><strong>Telephone:</strong> +90 216 358 10 00</p>
+            <p class="contact-info"><strong>WatsAPP:</strong> +357 97 96 56 86</p>
+            <p><strong>Address:</strong><br>
+                BARBAROS MH AL ZAMBAK SK<br>
+                VARYAP MERIDIAN A BLOK GRAND TOWER NO:2<br>
+                KAT 23 İÇ KAPI:195<br>
+                ATAŞEHİR / İSTANBUL
+            </p>
+        </div>
+
+        <!-- RIGHT COLUMN FORM -->
+        <div class="form-box">
+            <h3>Send Us a Message</h3>
+
+            <form action="mailto:info@konig.com.tr" method="POST" enctype="text/plain">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <input type="text" name="Phone" placeholder="Phone Number">
+                <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+
+    <h2 style="margin-top: 60px;">OUR LOCATION</h2>
+
+    <div class="map-container">
+        <iframe 
+            width="100%" height="100%" frameborder="0" style="border:0"
+            src="https://maps.google.com/maps?q=VARYAP%20MERIDIAN%20A%20BLOK%20GRAND%20TOWER%20ISTANBUL&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</section>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="whatsapp-float" href="https://wa.me/+35797965686" target="_blank">💬</a>
+
+<footer>
+    König Global © 2025 — All Rights Reserved
+</footer>
+
+</body>
+</html>
+

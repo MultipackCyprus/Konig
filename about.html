@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KONIG GLOBAL — About Us</title>
+
+<!-- FONTS: use local / system fallback for speed -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* BASE STYLES & COLOR PALETTE (Reusable CSS for all pages) */
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #f0f0f0; background-color: #111; scroll-behavior: smooth; }
+        .container { width: 90%; max-width: 1280px; margin: auto; overflow: hidden; }
+        :root { --konig-red: #b20700; --konig-dark: #000; --konig-light: #f7f7f7; }
+
+        h1, h2, h3 { line-height: 1.2; }
+        h2 { font-size: 38px; text-align: center; margin-bottom: 10px; color: var(--konig-red); text-transform: uppercase; }
+        h3 { color: var(--konig-red); font-size: 24px; }
+        p { color: #ccc; }
+
+        /* HEADER AND NAVIGATION (Dark/Black) */
+        header { background: var(--konig-dark); padding: 15px 0; border-bottom: 4px solid var(--konig-red); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* LOGO (Using uploaded logo) */
+        .logo a { display: flex; align-items: center; text-decoration: none; color: white; font-size: 28px; font-weight: 700; letter-spacing: 1px; }
+        .logo img { height: 45px; margin-right: 15px; transition: transform 0.4s ease; } /* Logo animation */
+        .logo img:hover { transform: rotate(5deg); }
+
+        /* NAVIGATION LINKS */
+        nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 15px; margin-left: 30px; padding: 10px 0; transition: color 0.3s, border-bottom 0.3s, opacity 0.3s; opacity: 0.9; }
+        nav a:hover, nav a.active { color: var(--konig-red); border-bottom: 2px solid var(--konig-red); opacity: 1; }
+
+  /* Hero */
+  .hero{
+    background-image:url('./img/Free\ Barista\ preparing\ coffee\ Photo\ -\ Barista\,\ Coffee\,\ Cafe\ _\ Download\ at\ StockCake\ \(1\).jpeg');
+    background-size:cover;
+    background-position:center;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    padding:48px 0;
+  }
+  .hero-card{
+    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.55));
+    border-left:6px solid var(--red);
+    padding:28px;
+    color:var(--white);
+    max-width:620px;
+    border-radius:8px;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+  }
+  .hero-card h1{margin:0 0 10px; font-size:22px; letter-spacing: .6px}
+  .hero-card p{margin:0; color:#e6e6e6; font-size:16px}
+
+  /* Content sections */
+  section{padding:56px 0; border-bottom:1px solid rgba(255,255,255,.03)}
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
+  .card{background:var(--card); padding:22px; border-radius:10px; box-shadow: 0 6px 18px rgba(0,0,0,.5)}
+  h2.section-title{font-size:24px; color:var(--white); margin:0 0 16px}
+  p.lead{color:#d9d9d9; margin:0 0 12px; font-size:16px}
+  .feature{display:flex; gap:12px; align-items:flex-start}
+  .feature strong{display:block; color:var(--white); margin-bottom:6px}
+
+  /* Certifications row */
+  .cert-row{display:flex; gap:28px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px}
+  .cert-thumb{width:160px; height:110px; object-fit:contain; background:rgba(255,255,255,.03); border-radius:6px; padding:10px; border:1px solid rgba(255,255,255,.03); transition:transform .22s ease, box-shadow .22s ease; cursor:pointer}
+  .cert-thumb:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.6)}
+
+  /* Footer */
+  footer{padding:36px 0; color:#9d9d9d}
+  .footer-grid{display:grid; grid-template-columns:1fr 280px; gap:20px; align-items:start}
+  .btn{display:inline-block; background:var(--red); color:var(--white); padding:10px 14px; border-radius:8px; font-weight:600}
+
+  /* Modal / Lightbox (full-screen) */
+  #cert-modal{
+    display:none;
+    position:fixed !important;
+    inset:0;
+    z-index:2147483647;
+    background:rgba(0,0,0,.92);
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+  }
+  #cert-modal .wrap{max-width:1200px; width:100%; display:flex; gap:18px; align-items:center; justify-content:center}
+  #cert-modal img{max-width:95vw; max-height:85vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .modal-close{position:fixed; right:18px; top:18px; color:#fff; background:rgba(255,255,255,.06); border-radius:8px; padding:8px 10px; cursor:pointer; font-weight:600}
+
+  /* responsive */
+  @media (max-width:900px){
+    .two-col{grid-template-columns:1fr}
+    .cert-thumb{width:140px; height:90px}
+    nav.desktop{display:none}
+  }
+  @media (max-width:520px){
+    .hero{padding:30px 0; min-height:360px}
+    .hero-card{padding:18px}
+    .logo img{height:36px}
+    .container{width:95%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-row">
+    <div class="logo">
+      <a href="index.html" aria-label="KONIG Global Home">
+        <img src="img/лого.jpg" alt="KONIG Global logo" loading="lazy">
+        <span style="color:var(--white); font-size:18px">König Global</span>
+      </a>
+    </div>
+
+    <nav class="desktop" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="contacts.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" role="region" aria-label="Company hero">
+  <div class="container">
+    <div class="hero-card" role="article">
+      <h1>KONIG Filter Paper — Trusted since 1995</h1>
+      <p>Manufacturer and supplier of premium filter paper for the food industry. Production in Istanbul using Swiss-grade paper. Custom filters in 1–3 business days. Certified and customer-focused.</p>
+      <div style="margin-top:16px">
+        <a class="btn" href="#/mnt/data/PAF24 09-41PR Oct24 TRANSLATED RU.pdf" target="_blank" rel="noopener">Download project brief (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section aria-labelledby="mission-title">
+  <div class="container">
+    <h2 id="mission-title" class="section-title">Our mission & vision</h2>
+
+    <div class="two-col" style="margin-top:18px">
+      <div class="card">
+        <p class="lead">We put customers first — long-term partnerships, timely and friendly service, continuous technological improvement, and respect for nature. We ensure product safety through strict supplier selection and staff training.</p>
+
+        <div style="margin-top:14px">
+          <div class="feature"><div><strong>Food safety</strong><span> — FSSC 22000 V6 aligned processes and continuous improvement.</span></div></div>
+          <div class="feature" style="margin-top:10px"><div><strong>Custom solutions</strong><span> — sizing, shaping and packaging tailored to industrial needs.</span></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Why KONIG</h3>
+        <ul style="margin:10px 0 0 18px; color:var(--muted)">
+          <li>Production since 1995 (Istanbul)</li>
+          <li>Swiss-grade filter paper</li>
+          <li>Professional coffee & fry filters for horeca</li>
+          <li>Fast custom runs (1–3 business days)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" style="background:linear-gradient(180deg, rgba(178,7,0,.95), var(--red)); color:#fff;">
+  <div class="container" style="padding-top:36px; padding-bottom:36px">
+    <h2 class="section-title" style="color:#fff">Certified Excellence</h2>
+    <p style="text-align:center; max-width:880px; margin:10px auto 18px; color:rgba(255,255,255,.95)">We maintain rigorous food-safety standards — certifications and traceable quality at every stage.</p>
+
+    <div class="cert-row" aria-hidden="false">
+      <!-- Make sure these files exist in /img/; they are loaded lazily -->
+      <div style="text-align:center">
+        <img src="./img/ISO22000 2018-1.png" alt="ISO 22000 certificate" class="cert-thumb" loading="lazy" data-caption="ISO 22000 Certificate">
+        <div style="margin-top:8px;color:#fff;font-weight:600">ISO 22000</div>
+      </div>
+
+      <div style="text-align:center">
+        <img src="./img/ares ing._page-0001.jpg" alt="FSSC 22000 certificate" class="cert-thumb" loading="lazy" data-caption="FSSC 22000 Certificate">
+        <div style="margin-top:8px;color:#fff;font-weight:600">FSSC 22000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container footer-grid" style="align-items:center">
+    <div>
+      <h4 style="color:var(--white); margin-bottom:8px">KONIG GLOBAL</h4>
+      <p style="margin:0 0 8px; color:var(--muted)">Developer, manufacturer and supplier of filter paper for the food industry. Production in Istanbul since 1995.</p>
+      <a href="contacts.html" class="btn" style="background:#111">Contact us</a>
+    </div>
+
+    <div style="text-align:right">
+      <div style="color:var(--muted); margin-bottom:8px">Quick links</div>
+      <a href="/#mnt/data/PAF24 09-41PR Oct24 TRANSLATED RU.pdf" style="display:inline-block; color:#fff; margin-bottom:6px" target="_blank" rel="noopener">Project brief (PDF)</a><br>
+      <a href="products.html" style="display:inline-block; color:#fff">Products</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FULLSCREEN CERTIFICATE MODAL (place at end of body) -->
+<div id="cert-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" style="display:none">
+  <button class="modal-close" aria-label="Close certificate (Esc)">Close ✕</button>
+  <div class="wrap" aria-live="polite">
+    <img id="cert-modal-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+/* Certificate lightbox: supports click, Esc to close, left/right nav (if multiple) */
+(function(){
+  const thumbs = document.querySelectorAll('.cert-thumb');
+  const modal = document.getElementById('cert-modal');
+  const modalImg = document.getElementById('cert-modal-img');
+  const closeBtn = modal.querySelector('.modal-close');
+
+  let index = -1;
+  const items = Array.from(thumbs).map(t => ({src: t.src, alt: t.alt || '', caption: t.dataset?.caption || ''}));
+
+  function open(i){
+    index = i;
+    modalImg.src = items[index].src;
+    modalImg.alt = items[index].alt;
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    // focus for accessibility
+    closeBtn.focus();
+  }
+  function close(){
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    modalImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  thumbs.forEach((t, i) => {
+    t.addEventListener('click', e => { open(i); });
+    t.addEventListener('keydown', e => { if(e.key === 'Enter') open(i); });
+  });
+
+  // close events
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal || e.target === modalImg) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(modal.style.display === 'flex'){
+      if(e.key === 'Escape') close();
+      else if(e.key === 'ArrowLeft'){ index = (index - 1 + items.length) % items.length; modalImg.src = items[index].src; }
+      else if(e.key === 'ArrowRight'){ index = (index + 1) % items.length; modalImg.src = items[index].src; }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

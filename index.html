@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONIG GLOBAL - The Ultimate Filtration Partner</title>
+    <style>
+        /* BASE STYLES & COLOR PALETTE (Reusable CSS for all pages) */
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #f0f0f0; background-color: #111; scroll-behavior: smooth; }
+        .container { width: 90%; max-width: 1280px; margin: auto; overflow: hidden; }
+        :root { --konig-red: #b20700; --konig-dark: #000; --konig-light: #f7f7f7; }
+
+        h1, h2, h3 { line-height: 1.2; }
+        h2 { font-size: 38px; text-align: center; margin-bottom: 10px; color: var(--konig-red); text-transform: uppercase; }
+        h3 { color: var(--konig-red); font-size: 24px; }
+        p { color: #ccc; }
+
+        /* HEADER AND NAVIGATION (Dark/Black) */
+        header { background: var(--konig-dark); padding: 15px 0; border-bottom: 4px solid var(--konig-red); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* LOGO (Using uploaded logo) */
+        .logo a { display: flex; align-items: center; text-decoration: none; color: white; font-size: 28px; font-weight: 700; letter-spacing: 1px; }
+        .logo img { height: 45px; margin-right: 15px; transition: transform 0.4s ease; } /* Logo animation */
+        .logo img:hover { transform: rotate(5deg); }
+
+        /* NAVIGATION LINKS */
+        nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 15px; margin-left: 30px; padding: 10px 0; transition: color 0.3s, border-bottom 0.3s, opacity 0.3s; opacity: 0.9; }
+        nav a:hover, nav a.active { color: var(--konig-red); border-bottom: 2px solid var(--konig-red); opacity: 1; }
+
+        /* HERO SECTION (Main Banner) */
+        #hero { 
+            background: url('img/main-konig-banner.jpg') no-repeat center center/cover; /* REPLACE WITH YOUR IMAGE */
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 0;
+        }
+
+        #hero-content {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            max-width: 550px;
+            border-left: 5px solid var(--konig-red);
+            margin-left: 5%;
+            animation: fadeIn 2s ease-out; /* Simple entry animation */
+        }
+        #hero h1 { font-size: 38px; margin: 0 0 15px; color: white; }
+        #hero p { font-size: 20px; color: #ddd; margin-bottom: 30px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* GENERAL SECTIONS */
+        section { padding: 80px 0; border-bottom: 1px solid #222; }
+
+        /* PRODUCTS/CATEGORIES GRID (with hover animation) */
+        #products { background: #080808; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .product-item { 
+            background: #222; 
+            text-align: center; 
+            border: 2px solid #333; 
+            border-top: 5px solid var(--konig-red); /* Red border accent */
+            padding-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease; /* Hover animation transition */
+            text-decoration: none;
+            color: #ccc;
+        }
+        
+        /* Product Hover Animation */
+        .product-item:hover { 
+            background: #333; 
+            box-shadow: 0 0 20px rgba(178, 7, 0, 0.5); /* Glowing red shadow */
+            transform: scale(1.03); 
+        }
+
+        .product-item img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            transition: transform 0.4s ease;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-item h4 { margin-top: 20px; font-size: 20px; }
+
+        /* QUALITY/CERTIFICATES SECTION */
+        #quality { background: var(--konig-red); color: white; padding: 40px 0; text-align: center; }
+        #quality h2 { color: white; border: none; font-size: 30px; }
+        #quality p { color: #fff; font-size: 18px; margin-bottom: 30px; }
+        
+        .cert-icons { display: flex; justify-content: center; gap: 50px; }
+        .cert-icons div { font-size: 16px; font-weight: bold; padding: 10px 20px; background: rgba(0, 0, 0, 0.2); border-radius: 5px; }
+
+
+        /* FOOTER (Used for contact info in footer) */
+        footer { background: var(--konig-dark); color: #888; padding: 30px 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        .footer-grid h4 { color: white; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 20px; }
+        .footer-grid a { color: #aaa; text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s; }
+        .footer-grid a:hover { color: var(--konig-red); }
+
+        .contact-info p { margin: 5px 0; font-size: 15px; }
+
+        /* General Inner Page Styles */
+        .page-banner { 
+            background: url('img/inner-banner-placeholder.jpg') no-repeat center center/cover; 
+            height: 300px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 40px;
+            border-bottom: 5px solid var(--konig-red);
+        }
+        .page-banner h1 { 
+            color: white; 
+            background: rgba(0, 0, 0, 0.7); 
+            padding: 10px 30px; 
+            font-size: 48px; 
+            margin: 0;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/лого.jpg" alt="KONIG GLOBAL Logo"> 
+                    König Global
+                </a>
+            </div>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div id="hero-content">
+            <h1>A GLOBAL BRAND WITH A PROUD HISTORY</h1>
+            <p>We König Filter Paper is a developer, manufacturer, and supplier of high-quality filtration solutions for the food industry, trusted by clients around the world. Since 1995, our filters have been produced in Istanbul, Turkey, using premium Swiss paper.</p>
+            <a href="products.html" style="display: inline-block; background: var(--konig-red); color: white; padding: 12px 30px; text-decoration: none; border-radius: 3px; font-weight: bold; transition: background 0.3s;">VIEW OUR CATALOG</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 style="color: white; border-bottom: 2px solid var(--konig-red);">ABOUT KONIG GLOBAL</h2>
+        <p style="text-align: center; font-size: 18px; max-width: 900px; margin: 20px auto;">
+           König Filter Paper is a global leader in producing coffee filter papers for professional filter coffee machines from renowned brands such as Bravilor Bonamat, Marco, Queen, Animo, and Bunn. Since 2016, we have expanded our expertise to include filters for various alternative coffee brewing methods: V60 cone filters, trapezoid filters for household drip coffee makers (sizes 2 and 4), Chemex filters, and round Aeropress filters.
+We also produce filter envelopes and sheets for outdoor fryers used in fast-food restaurants. Our paper filters are compatible with Henny Penny, Frymaster, Picto, and Boster equipment.
+Another key area of our production is specialized filter cloths in rolls for filtering frying oil, rinse water, and other liquids in food processing. These filter materials are used on production lines to remove solid particles such as remnants of French fries, peanuts and other foods, breadcrumbs, spices, oil film, shells, and other mechanical debris. The rolls are manufactured in the required width and length to fit specific equipment.
+We create filtration solutions that make production cleaner, flavors richer, and equipment performance more reliable.
+        <div style="display: flex; gap: 30px; margin-top: 40px;">
+            <div style="flex: 1; text-align: center;">
+                <img src="img/factory-placeholder.jpg" alt="Factory Image" style="width: 100%; height: 250px; object-fit: cover;">
+                <h3 style="margin-top: 15px;">Advanced Manufacturing</h3>
+                <p>State-of-the-art production facilities ensuring precision and high volume capacity.</p>
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <img src="img/rd-placeholder.jpg" alt="R&D Image" style="width: 100%; height: 250px; object-fit: cover;">
+                <h3 style="margin-top: 15px;">Research & Development</h3>
+                <p>Continuous innovation to meet the demands of modern engine technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2>OUR PRODUCT RANGE</h2>
+        <div class="product-grid">
+            
+            <a href="products.html#oil" class="product-item">
+                <img src="./img/Filters for coffee machines.jpg" alt="Filters for coffee machines">
+                <h4>Filters for coffee machines</h4>
+                <p>Coffee Machine Filters: For a Perfect Cup Every Time
+
+The right filter is key to unlocking your coffee's full flavor and protecting your machine. We offer a range of high-quality paper, metal, and cloth filters to suit your brewing style and ensure a clean, delicious brew.</p>
+            </a>
+            
+            <a href="products.html#air" class="product-item">
+                <img src="./img/Filters on rolls.jpg" alt="Filters on rolls">
+                <h4>Filters on rolls</h4>
+                <p>Filter cloth in rolls is used on technological lines in the production of the following products:
+
+<br>-Frozen French fries, chicken nuggets, fish sticks, and other breaded products
+
+<br>-Production of sunflower seeds and nuts
+
+<br>-Production of chips, donuts, and pies</p>
+            </a>
+            
+            <a href="products.html#fuel" class="product-item">
+                <img src="./img/Filters for coffee makers.jpg" alt="Filters for coffee makers">
+                <h4>Filters for coffee makers</h4>
+                <p>Filters for Coffee Makers: The Key to Great Coffee
+
+The perfect cup starts with the right filter. It ensures your coffee is clear, flavorful, and free of grounds. Protect your coffee maker and enjoy a consistently delicious brew every time. Find the exact paper or reusable filter designed for your machine model..</p>
+            </a>
+            
+            <a href="products.html#cabin" class="product-item">
+                <img src="./img/Filters for deep fryers.jpg" alt="Filters for deep fryers">
+                <h4>Filters for deep fryers</h4>
+                <p>Filters for Deep Fryers: For Crispier Food & Longer-Lasting Oil
+
+A deep fryer filter is essential for clean oil and perfect frying results. It removes food particles and sediment, preventing off-flavors and extending the life of your cooking oil. Enjoy cleaner, better-tasting food and protect your appliance..</p>
+            </a>
+
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="products.html" style="background: var(--konig-red); color: white; padding: 15px 40px; text-decoration: none; border-radius: 3px; font-weight: bold;">VIEW FULL CATALOG</a>
+        </div>
+    </section>
+
+    <section id="quality">
+        <div class="container">
+            <h2>GLOBAL QUALITY STANDARDS</h2>
+            <p>Our commitment to excellence is proven by our adherence to the most demanding international certifications.</p>
+            
+            <div class="cert-icons">
+                <div>ISO 22000</div>
+                <div>FSSC 22000</div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="about-footer">
+                <h4>KONIG GLOBAL</h4>
+                <p>The leading manufacturer of high-quality automotive filtration products. Trusted by professionals worldwide for superior engine protection and performance.</p>
+                <p style="margin-top: 15px;">&copy; 2025 KONIG GLOBAL. All rights reserved.</p>
+            </div>
+            
+            <div class="links-footer">
+                <h4>Quick Links</h4>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Product Range</a>
+                <a href="contacts.html">Contact Us</a>
+                
+            </div>
+
+            <div class="contact-footer">
+                <h4>Contact Details</h4>
+                <p class="contact-info"><strong>Phone:</strong> +90 216 358 10 00</p>
+                <p class="contact-info"><strong>WatsAPP:</strong> +357 97 96 56 86</p>
+                <p class="contact-info"><strong>Email:</strong> paperfilter@konig.com.tr</p>
+                <p class="contact-info"><strong>Address:</strong> Address: BARBAROS MH AL ZAMBAK SK VARYAP MERIDIAN A BLOK GRAND TOWER NO:2 KAT 23 İÇ KAPI:195 ATAŞEHİR /İSTANBUL</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
